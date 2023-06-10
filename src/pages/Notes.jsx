@@ -37,13 +37,17 @@ const Notes = ({ notes }) => {
             }}
           />
         )}
-
-        <button
-          className="btn"
-          onClick={() => setShowSearch((prevState) => !prevState)}
-        >
-          {showSearch ? <MdClose /> : <CiSearch />}
-        </button>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          <button
+            className="btn"
+            onClick={() => setShowSearch((prevState) => !prevState)}
+          >
+            {showSearch ? <MdClose /> : <CiSearch />}
+          </button>
+          <Link to="/create-note" className="btn">
+            <BsPlusLg />
+          </Link>
+        </div>
       </header>
       <div className="notes__container">
         {filteredNotes.length === 0 && (
@@ -53,9 +57,6 @@ const Notes = ({ notes }) => {
           <NoteItem key={note.id} note={note} />
         ))}
       </div>
-      <Link to="/create-note" className="btn add__btn">
-        <BsPlusLg />
-      </Link>
     </section>
   );
 };

@@ -40,8 +40,10 @@ const useCreateDate = () => {
       monthName = "Dec";
       break;
   }
-
-  const date = `${monthName} ${dateObj.getDate()}, ${dateObj.getFullYear()} [${dateObj.getHours()}:${dateObj.getMinutes()}] `;
+  const date = `${monthName} ${dateObj.getDate()}, ${dateObj.getFullYear()} [${dateObj.getHours()}:${dateObj
+    .getMinutes()
+    .toString()
+    .padStart(2, "0")}] `;
   return date;
 };
 
